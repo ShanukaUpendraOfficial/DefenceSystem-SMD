@@ -1,6 +1,7 @@
 package view;
 
 import controller.ControlRoom;
+import java.awt.Color;
 import obs.Observer;
 
 public class Helicopter extends javax.swing.JFrame implements Observer{
@@ -14,6 +15,8 @@ public class Helicopter extends javax.swing.JFrame implements Observer{
         setTitle("Helicopter");
         this.controlroom=controlRoom;
         setVisible(true);
+        setBounds(960, 0, 960, 540);
+        setSize(820,575);
         btnShoot.setEnabled(false);
         btnMissile.setEnabled(false);
         btnLaser.setEnabled(false);
@@ -36,29 +39,48 @@ public class Helicopter extends javax.swing.JFrame implements Observer{
         jLabel3 = new javax.swing.JLabel();
         sldHelicopter = new javax.swing.JSlider();
         btnHelicopterPosition = new javax.swing.JCheckBox();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setPreferredSize(new java.awt.Dimension(750, 500));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtArea.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txtArea.setText("Area Not Cleared");
+        getContentPane().add(txtArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 137, 400, 45));
 
         btnShoot.setText("Shoot");
+        getContentPane().add(btnShoot, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 188, 150, 36));
 
+        btnMissile.setBackground(new java.awt.Color(0, 0, 0));
+        btnMissile.setForeground(new java.awt.Color(255, 255, 255));
         btnMissile.setText("Missile Operation");
         btnMissile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMissileActionPerformed(evt);
             }
         });
+        getContentPane().add(btnMissile, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 188, 150, 36));
 
+        btnLaser.setBackground(new java.awt.Color(0, 0, 0));
+        btnLaser.setForeground(new java.awt.Color(255, 255, 255));
         btnLaser.setText("Laser Operation");
         btnLaser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLaserActionPerformed(evt);
             }
         });
+        getContentPane().add(btnLaser, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 230, 150, 36));
+
+        txtFieldHelicopter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFieldHelicopterActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtFieldHelicopter, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 492, 609, 36));
 
         btnHelicopterSend.setText("Send");
         btnHelicopterSend.addActionListener(new java.awt.event.ActionListener() {
@@ -66,19 +88,27 @@ public class Helicopter extends javax.swing.JFrame implements Observer{
                 btnHelicopterSendActionPerformed(evt);
             }
         });
+        getContentPane().add(btnHelicopterSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(627, 493, 81, 36));
 
         txtHelicopterMessage.setColumns(20);
         txtHelicopterMessage.setRows(5);
         jScrollPane1.setViewportView(txtHelicopterMessage);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 279, 694, 207));
+        getContentPane().add(spnSoliderCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(589, 174, -1, -1));
+        getContentPane().add(spnAmmoCount, new org.netbeans.lib.awtextra.AbsoluteConstraints(589, 202, -1, -1));
+
         jLabel2.setText("Ammo Count");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(458, 205, 125, -1));
 
         jLabel3.setText("Solider Count");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(458, 177, 125, -1));
 
         sldHelicopter.setMajorTickSpacing(20);
         sldHelicopter.setOrientation(javax.swing.JSlider.VERTICAL);
         sldHelicopter.setPaintLabels(true);
         sldHelicopter.setPaintTicks(true);
+        getContentPane().add(sldHelicopter, new org.netbeans.lib.awtextra.AbsoluteConstraints(714, 162, 81, 358));
 
         btnHelicopterPosition.setText("Position");
         btnHelicopterPosition.addActionListener(new java.awt.event.ActionListener() {
@@ -86,83 +116,12 @@ public class Helicopter extends javax.swing.JFrame implements Observer{
                 btnHelicopterPositionActionPerformed(evt);
             }
         });
+        getContentPane().add(btnHelicopterPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(587, 232, -1, 30));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, 69));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(txtFieldHelicopter, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnHelicopterSend, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(btnShoot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnLaser, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
-                                .addGap(5, 5, 5)
-                                .addComponent(btnMissile, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(72, 72, 72))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtArea, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(spnAmmoCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(spnSoliderCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnHelicopterPosition, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(38, 38, 38)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(sldHelicopter, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(txtArea, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnShoot, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnMissile, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnLaser, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(spnSoliderCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(spnAmmoCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnHelicopterPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFieldHelicopter, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnHelicopterSend, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(sldHelicopter, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Untitled design (1).png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 0, -1, 136));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 126, 820, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -181,8 +140,16 @@ public class Helicopter extends javax.swing.JFrame implements Observer{
     }//GEN-LAST:event_btnMissileActionPerformed
 
     private void btnHelicopterPositionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelicopterPositionActionPerformed
-        // TODO add your handling code here:
+        if(!(btnHelicopterPosition.isSelected())){
+            btnShoot.setEnabled(false);
+            btnMissile.setEnabled(false);
+            btnLaser.setEnabled(false);
+        }
     }//GEN-LAST:event_btnHelicopterPositionActionPerformed
+
+    private void txtFieldHelicopterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldHelicopterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFieldHelicopterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -191,8 +158,11 @@ public class Helicopter extends javax.swing.JFrame implements Observer{
     private javax.swing.JButton btnLaser;
     private javax.swing.JButton btnMissile;
     private javax.swing.JButton btnShoot;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSlider sldHelicopter;
     private javax.swing.JSpinner spnAmmoCount;
@@ -205,9 +175,13 @@ public class Helicopter extends javax.swing.JFrame implements Observer{
     @Override
     public void areaClear(boolean areaClear) {
         if (areaClear) {
+            txtArea.setOpaque(true);
             txtArea.setText("Area Cleared");
+            txtArea.setBackground(Color.green);
         }else{
+            txtArea.setOpaque(true);
             txtArea.setText("Area Not Cleared");
+            txtArea.setBackground(Color.RED);
         }
     }
 
@@ -250,7 +224,7 @@ public class Helicopter extends javax.swing.JFrame implements Observer{
     @Override
     public void getPrivateMsg(String defence, String msg) {
         if("Helicopter".equals(defence)){
-            txtHelicopterMessage.append("Main Controller :  "+msg+"\n");
+            txtHelicopterMessage.append(msg+"\n");
         }
     }
 }
