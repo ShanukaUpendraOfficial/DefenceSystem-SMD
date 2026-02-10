@@ -52,6 +52,7 @@ Each defense unit has its own control panel with specialized actions:
 ---
 
 ## 🗂️ Project Structure
+```
 src/
 ├── controller/ # Main Controller logic (Subject)
 ├── units/ # Defense Units (Observers)
@@ -60,7 +61,7 @@ src/
 │ └── Submarine.java
 ├── interfaces/ # Observer & Subject interfaces
 └── main/ # Application entry point
-
+```
 ---
 
 ## 🛠️ Getting Started
